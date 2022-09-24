@@ -55,7 +55,7 @@ int SearchMinRowInArray2D(int[,] matrix) // находит Row с min суммо
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
             tempSum += matrix[i, j];
-            
+
         }
         // Console.WriteLine($"row: {i}, tempSum: {tempSum}");
         if (i == 0) minSum = tempSum;
@@ -78,8 +78,15 @@ int matrixSizeMin = 3;
 int matrixSizeMax = 4;
 int matrixElemMin = 0;
 int matrixElemMax = 9;
-int matrixRows = GeneratorRandomInt(matrixSizeMin, matrixSizeMax);
-int matrixCols = GeneratorRandomInt(matrixSizeMin, matrixSizeMax);
+int matrixRows;
+int matrixCols;
+while (true)
+{
+    matrixRows = GeneratorRandomInt(matrixSizeMin, matrixSizeMax);
+    matrixCols = GeneratorRandomInt(matrixSizeMin, matrixSizeMax);
+    if(matrixRows != matrixCols) break;
+}
+
 int[,] array2D = CreateMatrixRndInt(matrixRows, matrixCols, matrixElemMin, matrixElemMax);
 
 // тестовый массив
