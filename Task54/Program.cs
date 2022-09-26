@@ -78,8 +78,8 @@ int matrixCols;
 //     if (matrixRows != matrixCols) break;
 // }
 
-    matrixRows = GeneratorRandomInt(matrixSizeMin, matrixSizeMax);
-    matrixCols = GeneratorRandomInt(matrixSizeMin, matrixSizeMax);
+matrixRows = GeneratorRandomInt(matrixSizeMin, matrixSizeMax);
+matrixCols = GeneratorRandomInt(matrixSizeMin, matrixSizeMax);
 int[,] array2D = CreateMatrixRndInt(matrixRows, matrixCols, matrixElemMin, matrixElemMax);
 
 // тестовый массив

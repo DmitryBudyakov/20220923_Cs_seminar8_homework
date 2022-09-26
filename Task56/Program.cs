@@ -69,7 +69,7 @@ int SearchMinRowInArray2D(int[,] matrix) // находит Row с min суммо
         }
         // Console.WriteLine($"row: {i}, minSum: {minSum}");   // проверка
     }
-    return minRow;
+    return minRow + 1;
 }
 
 
@@ -91,9 +91,9 @@ int[,] array2D = CreateMatrixRndInt(matrixRows, matrixCols, matrixElemMin, matri
 
 // тестовый массив
 // int[,] array2D = {
-//     {16,3,2},
-//     {5,7,5},
-//     {6,1,8}
+//     {10,3,2},
+//     {5,11,5},
+//     {6,1,3}
 //     };
 
 Console.WriteLine("Массив:");
