@@ -57,21 +57,18 @@ void PrintMatrix(int[,] matrix)     // вывод 2D массива в конс�
 int[,] MultiplyArray2D(int[,] matrixA, int[,] matrixB) // перемножает две 2D матрицы
 {
     int[,] matrixResult = new int[matrixA.GetLength(0), matrixB.GetLength(1)];
-    int arrayAcolumns = matrixA.GetLength(1);
-    int arrayBrows = matrixB.GetLength(0);
+    // int arrayAcolumns = matrixA.GetLength(1);
+    // int arrayBrows = matrixB.GetLength(0);
 
     for (int i = 0; i < matrixResult.GetLength(0); i++)
     {
         for (int j = 0; j < matrixResult.GetLength(1); j++)
         {
             int sumInRow = 0;
-            int l = 0;
-            for (int k = 0; k < arrayAcolumns; k++)
+            for (int k = 0; k < matrixA.GetLength(1); k++)
             {
-                sumInRow += matrixA[i, k] * matrixB[l, j];
-                // Console.WriteLine($"i:{i}, j:{j}, k:{k}, l:{l}, matrixA[{i},{k}]:{matrixA[i, k]}, matrixB[{l},{j}]:{matrixB[l, j]}, sumInRow: {sumInRow}");  // проверка
-                if (l != arrayBrows - 1) l++;
-                else l = 0;
+                sumInRow += matrixA[i, k] * matrixB[k, j];
+                // Console.WriteLine($"i:{i}, j:{j}, k:{k}, matrixA[{i},{k}]:{matrixA[i, k]}, matrixB[{k},{j}]:{matrixB[k, j]}, sumInRow: {sumInRow}");  // проверка
             }
             matrixResult[i, j] = sumInRow;
             // Console.WriteLine($"i:{i}, j:{j}, sumInRow:{sumInRow}"); // проверка
@@ -123,7 +120,7 @@ Console.WriteLine("Матрица B:");
 PrintMatrix(arrayB);
 Console.WriteLine();
 
-if (arrayA.GetLength(0) == arrayB.GetLength(1))
+if (arrayA.GetLength(1) == arrayB.GetLength(0))
 
 {
     int[,] arrayC = MultiplyArray2D(arrayA, arrayB);
