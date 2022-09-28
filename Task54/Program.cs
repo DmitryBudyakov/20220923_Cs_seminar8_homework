@@ -83,6 +83,7 @@ matrixCols = GeneratorRandomInt(matrixSizeMin, matrixSizeMax);
 int[,] array2D = CreateMatrixRndInt(matrixRows, matrixCols, matrixElemMin, matrixElemMax);
 
 // тестовый массив
+
 // int[,] array2D = {
 //     {0,1,2},
 //     {5,7,5},
