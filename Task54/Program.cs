@@ -19,12 +19,14 @@ int GeneratorRandomInt(int minValue, int maxValue)  // генератор Random
 int[,] CreateMatrixRndInt(int rows, int columns, int min, int max)  // создает массив
 {
     int[,] matrix = new int[rows, columns];
+    Random rnd = new Random();
 
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
-            matrix[i, j] = GeneratorRandomInt(min, max);
+            // matrix[i, j] = GeneratorRandomInt(min, max);
+            matrix[i, j] = rnd.Next(min, max + 1);
         }
     }
     return matrix;
@@ -65,6 +67,10 @@ void SortRowsMaxToMinInArray2D(int[,] matrix) // сортировка элеме
 
 
 Console.Clear();
+string title = "Упорядочивание по убыванию элементов каждой строки двумерного массива\n"
+             + "---------------------------------------------------------------------";
+Console.WriteLine(title);
+
 int matrixSizeMin = 3;
 int matrixSizeMax = 4;
 int matrixElemMin = -9;
@@ -89,6 +95,7 @@ int[,] array2D = CreateMatrixRndInt(matrixRows, matrixCols, matrixElemMin, matri
 //     {5,7,5},
 //     {6,1,8}
 //     };
+
 
 Console.WriteLine("Исходный массив:");
 PrintMatrix(array2D);
