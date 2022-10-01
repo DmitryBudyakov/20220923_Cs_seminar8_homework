@@ -18,12 +18,14 @@ int GeneratorRandomInt(int minValue, int maxValue)  // генератор Random
 int[,] CreateMatrixRndInt(int rows, int columns, int min, int max)  // создает массив
 {
     int[,] matrix = new int[rows, columns];
+    Random rnd = new Random();
 
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
-            matrix[i, j] = GeneratorRandomInt(min, max);
+            // matrix[i, j] = GeneratorRandomInt(min, max);
+            matrix[i, j] = rnd.Next(min, max + 1);
         }
     }
     return matrix;
@@ -74,6 +76,10 @@ int SearchMinRowInArray2D(int[,] matrix) // находит Row с min суммо
 
 
 Console.Clear();
+string title = "Нахождение строки с наименьшей суммой элементов\n"
+             + "-----------------------------------------------";
+Console.WriteLine(title);
+
 int matrixSizeMin = 3;
 int matrixSizeMax = 4;
 int matrixElemMin = 0;
@@ -84,7 +90,7 @@ while (true)
 {
     matrixRows = GeneratorRandomInt(matrixSizeMin, matrixSizeMax);
     matrixCols = GeneratorRandomInt(matrixSizeMin, matrixSizeMax);
-    if(matrixRows != matrixCols) break;
+    if (matrixRows != matrixCols) break;
 }
 
 int[,] array2D = CreateMatrixRndInt(matrixRows, matrixCols, matrixElemMin, matrixElemMax);
